@@ -14,7 +14,7 @@
  这个数字签名由应用程序的作者完成，并不需要权威的数字证书签名机构认证，它只是用来让应用程序包自我认证的.
 
 - AIDL的全称是什么？如何工作？
-> 把对象拆分成操作系统能理解的简单形式, 以达到跨界对象访问的目的. 在J2EE中,采用RMI的方式, 可以通过序列化传递对象. 在Android中, 则 采用AIDL的方式. 理论上AIDL可以传递Bundle,实际上做起来却比较麻烦。 AIDL(AndRoid接口描述语言)是一种借口描述语言; 编译器可以通过aidl文件生成一段代码，通过预先定义的接口达到两个进程内部通信进程的目的. 如果需要 在一个Activity中, 访问另一个Service中的某个对象, 需要先将对象转化成AIDL可识别的参数(可能是多个参数), 然后使用AIDL来传递这些参数, 在消息的接收端, 使用 这些参数组装成自己需要的对象.AIDL的IPC的机制和COM或CORBA类似, 是基于接口的，但它是轻量级的。它使用代理类在客户端和实现层间传递值.
+> AIDL(AndRoid接口描述语言)是一种借口描述语言; 编译器可以通过aidl文件生成一段代码，通过预先定义的接口达到两个进程内部通信进程的目的. 如果需要 在一个Activity中, 访问另一个Service中的某个对象, 需要先将对象转化成AIDL可识别的参数(可能是多个参数), 然后使用AIDL来传递这些参数, 在消息的接收端, 使用 这些参数组装成自己需要的对象.AIDL的IPC的机制和COM或CORBA类似, 是基于接口的，但它是轻量级的。它使用代理类在客户端和实现层间传递值.
 <br>
 >需要完成两件事情:
 >>1.引入AIDL的相关类.
@@ -35,7 +35,14 @@ c：效率上(参考UDP的广播协议在局域网的方便性)
 d：设计模式上(反转控制的一种应用，类似监听者模式)
 
 - handler机制的原理
-> andriod提供了Handler和Looper来满足线程间的通信。Handler先进先出原则。Looper类用来管理特定线程内对象之间的消息交换(MessageExchange)。 1)Looper:一个线程可以产生一个Looper对象，由它来管理此线程里的MessageQueue(消息队列)。 2)Handler:你可以构造Handler对象来与Looper沟通，以便push新消息到MessageQueue里;或者接收Looper从MessageQueue取出)所送来的消息。 3)MessageQueue(消息队列):用来存放线程放入的消息。 4)线程：UIthread通常就是mainthread，而Android启动程序时会替它建立一个MessageQueue.
+> andriod提供了Handler和Looper来满足线程间的通信。Handler先进先出原则。Looper类用来管理特定线程内对象之间的消息交换(MessageExchange)。
+>>1.Looper:一个线程可以产生一个Looper对象，由它来管理此线程里的MessageQueue(消息队列).
+<br/>
+>>2.Handler:你可以构造Handler对象来与Looper沟通，以便push新消息到MessageQueue里;或者接收Looper从MessageQueue取出)所送来的消息。
+<br/>
+>>3.MessageQueue(消息队列):用来存放线程放入的消息。
+<br/>
+>>4.线程：UIthread通常就是mainthread，而Android启动程序时会替它建立一个MessageQueue.
 
 - ANR出现情况及如何避免
 > ApplicationNotResponding一般出现在Android主线程操作耗时操作所引发的情况。
@@ -48,8 +55,8 @@ d：设计模式上(反转控制的一种应用，类似监听者模式)
 >>3.主线程操作io，网络请求，耗时计算，图片处理等
 >
 >避免ANR:
->>1. 尽量不要在onCreate和onResume做耗时操作，采取：Handler+Thread 或者 AsyncTask的方式去异步进行（io,数据库，图片处理，网络）
->>2. 在BroadcastReceiver和Service也不要做耗时操作
+>>1.尽量不要在onCreate和onResume做耗时操作，采取：Handler+Thread 或者 AsyncTask的方式去异步进行（io,数据库，图片处理，网络）
+>>2.在BroadcastReceiver和Service也不要做耗时操作
 >
 >从 /data/anr/traces.txt文件中获取ANR信息
 >> 留意thread.wait,thread.sleep等信息，找出关键行数即可

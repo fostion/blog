@@ -1,9 +1,8 @@
-### AndroidInterview
+### **AndroidInterview**
 
-#### Java
+#### **Java**
 
-
-#### Android
+#### **Android**
 
 - dvm的进程和Linux的进程, 应用程序的进程是否为同一个概念
 > Dvm的进程是dalivk虚拟机进程,每个android程序都运行在自己的进程里面,每个android程序系统都会给他分配一个单独的liunx uid(user id),每个dvm都是linux里面的一个进程.所以说这两个进程是一个进程.

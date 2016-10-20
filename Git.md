@@ -122,3 +122,52 @@ git pull
 ＃提交和强制推送到远程自己的分支
 6.git push -f origin 分支名称
 ```
+
+
+#### Git Subtree使用
+公司开发过程中难免有一些公用的库文件，这些库文件也是由git进行管理，那么现在有这样的使用场景：项目PA需要使用LA,LB,LC库文件，但是一旦LA,LB,LC修改了，项目PA需要立即更换代码或者是不同分支，这里就需要使用到git subtree命令了。
+
+#### submodule和subtree区别
+git submodule
+- 仓库clone下来需要init和update
+- 产生.gitmodule类似文件
+- git submodule删除起来比较费劲
+
+git subtree
+- 避免以上问题
+- 管理和更新流程比较方便
+- git v1.5.2以后建议使用git subtree
+
+#### 引入库
+```git
+//为待引入仓库添加别名
+git remote add -f lib-module1(仓库别名) 项目路径/项目url
+
+//添加外部仓库为子目录
+git subtree add -P module1(引入项目别名) lib-module1（仓库别名） master(引入项目分支)
+```
+
+#### 引入库修改和更新
+```
+//在项目中修改引入库
+git subtree push -P module1(引入项目别名) lib-module1(仓库别名) master(引入项目分支)
+
+//更新库最新代码
+//这里有问题若是引入的本地文件，只有本地文件更新才会更新，若是远程文件，只有远程文件更新才会更新
+git subtree pull -P module1(引入项目别名) lib-module1(仓库别名) master(引入项目分支)
+
+
+//将库从项目中抽离出来
+git subtree split -P module1 -b lib-module1(将module1库抽出来成为一个叫lib-module1的branch)
+
+cd ..
+mkdir lib-module1
+cd lib-module1
+git init
+git pull ../TestProject lib-module1(从TestProject中把lib-module1库复制出来)
+
+//若是要清理原来资料库内容
+//这种方式虽然可以清除库，但是会rewrite commits history
+git filter-branch -f --index-filter "git rm -r -f -q --cached --ignore-unmatch module1" --prune-empty HEAD
+
+```

@@ -5,3 +5,4 @@
 - [Android面试知识](AndroidInterview.md)
 - [Android安全理解](http://www.codeceo.com/article/android-safe-talking.html)
 - [Android安全机制](http://blog.csdn.net/mad1989/article/details/16886189)
+- [Android插件化原理](https://segmentfault.com/a/1190000004062880)

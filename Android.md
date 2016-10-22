@@ -1,10 +1,11 @@
-### Android
+### Android 文章
 - [Android知识总结](https://github.com/nekocode/nekoblog/blob/master/Android.md)
+- [Android广播解析][Android/Android广播.md]
 - [Android 热补丁技术——资源的热修复](http://blog.csdn.net/sbsujjbcy/article/details/52541803)
 - [Android面试知识](AndroidInterview.md)
 - [Android安全理解](http://www.codeceo.com/article/android-safe-talking.html)
 - [Android安全机制](http://blog.csdn.net/mad1989/article/details/16886189)
-- [Android插件化原理](https://segmentfault.com/a/1190000004062880)
+- [Android插件化](Android/Android插件化.md)
 - [Android Proguard使用](Android/AndroidProguard.md)
 - [Android 减小apk大小](https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=208008519&idx=1&sn=278b7793699a654b51588319b15b3013&mpshare=1&scene=1&srcid=1021Ng0ToxadAr5CMzU5QZYj&pass_ticket=C1YkZeN2H2y6%2B6VT1q6mGSvKt4IjS7O0nRmWTaCU1wPofTgEEx2eKq2rKTUQxJ8v#rd)
 - [Android 混淆打包工具](http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=208135658&idx=1&sn=ac9bd6b4927e9e82f9fa14e396183a8f#rd)

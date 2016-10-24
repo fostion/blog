@@ -26,7 +26,7 @@ ClassLoader加载特点（双亲代理模型）
   3. 如果继承路线上的ClassLoader都没有加载，才由Child执行类加载工作
 
 优点：
-  1. 共享功能，一些Framework层级的类一旦被加载了，任何地方都不需要重新 加载。
+  1. 共享功能，一些Framework层级的类一旦被加载了，任何地方都不需要重新加载。
   2. 隔离功能，不同继承线路上的ClassLoader加载的类肯定不是同一个类，这样避免用户自己的类冒充核心类
 
 注意事项:
@@ -46,7 +46,7 @@ Android与Java程序使用上的区别:
   每个应用进程都会配备虚拟机，不同虚拟机在内存分配上有不同的地址空间，这就导致在不同的虚拟机中访问同一个类的对象会产生多份副本。
 
 如何开启开启新的进程
-  在AndroidManifest文件中，添加`android:process=":demao"`,请中`:`代表应用程序的私有进程，私有进程名称会自动在`:`前加上包名，而全局进程不会，一般情况下，都是使用应用的私有进程
+  在AndroidManifest文件中，添加android:process=":demao",请中 : 代表应用程序的私有进程，私有进程名称会自动在 : 前加上包名，而全局进程不会，一般情况下，都是使用应用的私有进程
 
 多进程的优点及缺点
   优点是分担主进程的内存压力，因为android内存限制主要限制虚拟机，每个虚拟机是进程，所以能分担内存压力，缺点是占用系统内存，容易导致内存占满手机卡顿的问题。
@@ -69,7 +69,7 @@ Android与Java程序使用上的区别:
 
 ##### AIDL的全称是什么？如何工作？
 ```
-AIDL(AndRoid接口描述语言)是一种借口描述语言; 编译器可以通过aidl文件生成一段代码，通过预先定义的接口达到两个进程内部通信进程的目的. 如果需要 在一个Activity中, 访问另一个Service中的某个对象, 需要先将对象转化成AIDL可识别的参数(可能是多个参数), 然后使用AIDL来传递这些参数, 在消息的接收端, 使用 这些参数组装成自己需要的对象.AIDL的IPC的机制和COM或CORBA类似, 是基于接口的，但它是轻量级的。它使用代理类在客户端和实现层间传递值.
+AIDL(Android Interface definition language)是一种接口描述语言; 编译器可以通过aidl文件生成一段代码，通过预先定义的接口达到两个进程内部通信进程的目的. 如果需要 在一个Activity中, 访问另一个Service中的某个对象, 需要先将对象转化成AIDL可识别的参数(可能是多个参数), 然后使用AIDL来传递这些参数, 在消息的接收端, 使用 这些参数组装成自己需要的对象.AIDL的IPC的机制和COM或CORBA类似, 是基于接口的，但它是轻量级的。它使用代理类在客户端和实现层间传递值.
 
 需要完成两件事情:
   1.引入AIDL的相关类.
@@ -81,15 +81,6 @@ AIDL支持的数据类型:
   3.List, Map和Parcelables类型, 这些类型内所包含的数据成员也只能是简单数据类型, String等其他比支持的类型.
 
 ```
-
-##### android引入广播机制
-```
-  1.从MVC的角度考虑引入广播机制可以方便几大组件的信息和数据交互。
-  2.程序间互通消息(例如在自己的应用程序内监听系统来电)
-  3.效率上(参考UDP的广播协议在局域网的方便性)
-  4.设计模式上(反转控制的一种应用，类似监听者模式)
-```
-
 
 ##### handler机制的原理
 ```
@@ -104,6 +95,7 @@ andriod提供了Handler和Looper来满足线程间的通信。Handler先进先�
 ##### ANR出现情况及如何避免
 ```
 ApplicationNotResponding一般出现在Android主线程操作耗时操作所引发的情况。
+
 出现场景：
   1.在5秒内没有响应输入的事件（例如:按键按下,屏幕触摸）
   2.BroadcastReceiver在10秒内没有执行完毕
@@ -119,10 +111,10 @@ ApplicationNotResponding一般出现在Android主线程操作耗时操作所引�
 
 
 ##### Fragment生命周期
-![Fragment生命周期](art/fragment_lifestyle.png)
+![Fragment生命周期](../art/fragment_lifestyle.png)
 
 ##### Activity和Fragment生命周期对比
-![Activity和Fragment的生命周期对照](art/activity_fragment_lifestyle.png)
+![Activity和Fragment的生命周期对照](../art/activity_fragment_lifestyle.png)
 
 ##### 根据上面生命周期图，可以得出以下结论：
 ```

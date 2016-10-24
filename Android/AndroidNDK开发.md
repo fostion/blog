@@ -17,7 +17,7 @@
 - MIPS64
 ```
 
-一般所有的库都知识armeabi架构的so库，但不是100%,所以需要取舍，例如新的64位ARM64-v8a，所以选取一些cpu市场比较大的so库
+一般所有的库都只是armeabi架构的so库，但不是100%,所以需要取舍，例如新的64位ARM64-v8a，所以选取一些cpu市场比较大的so库
 
 ###### 2. so存放位置
 - AndroidStudio 工程放在jniLibs/ABI目录中
@@ -61,16 +61,15 @@
 - gradle-experimental插件开发，使用AndroidStudio内部mk文件，只需要配置ndk(简单,不灵活)
 
 ###### gradle插件开发
-1. 系统配置（需要用到java所以java环境也要配置）
-
+###### 1.系统配置（需要用到java所以java环境也要配置）
 ```
 window :   classpath 添加ndk路径
 ```
 
-2. 项目配置NDK路径
+###### 2.项目配置NDK路径
 - AndroidStudio: Project Structure,切换到SDK Location，添加NDK路径
 
-3. 配置build.gradle
+###### 3.配置build.gradle
 
 ```gradle
 //gradle 版本
@@ -91,11 +90,10 @@ defaultConfig {
 ndk.dir=D\:\\coding\\tool\\androidNDK
 ```
 
-4. 添加native类和方法,jni文件夹
+###### 4.添加native类和方法,jni文件夹
 - AndroidStudio新建jni文件夹
 
-5. 生成h头文件和c主文件
-
+###### 5.生成h头文件和c主文件
 ```java
 //生成头文件 cc.fs.jni.JniTest.h
 javah -d ../jni 类全路径
@@ -103,8 +101,7 @@ javah -d ../jni 类全路径
 //注意:当前位置是在 app/src/main/java
 ```
 
-6. 代码中加载so文件
-
+###### 6.代码中加载so文件
 ```java
 static{
     System.loadLibrary("so名字");

@@ -1,0 +1,16 @@
+task printTask{
+  println("这是无定义task")
+}
+
+task endTask << {
+  //类似 << 与 doLast相同效果
+  println("这是结束后调用的task")
+}
+
+task assTask(type:Copy){
+  println(" assemble 启动后调用的task")
+}
+
+tasks.findByName('assembleChannel1').doLast {
+  println '++++++++ app last +++++++++'
+}

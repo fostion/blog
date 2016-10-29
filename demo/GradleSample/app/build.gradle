@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+
+android {
+    println("----------------")
+    println("project : "+project.getProjectDir().absolutePath)
+    println("project build : "+project.getBuildDir().absolutePath)
+    println("project root: "+project.getRootDir().absolutePath)
+    println("rootProject: "+rootProject.getProjectDir().absolutePath)
+    println("rootProject build: "+rootProject.getBuildDir().absolutePath)
+    println("rootProject root: "+rootProject.getRootDir().absolutePath)
+    println("----------------")
+
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        applicationId "cc.fs.gradletest"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.projectVersionCode
+        versionName rootProject.projectVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        //签名
+        debug {
+            Properties p = new Properties()
+            p.load(new FileInputStream(project.file('../keystore.properties')))
+            storeFile file("../test.jks")
+            storePassword p.KEYSTORE_PASSWORD
+            keyAlias p.KEY_ALIAS
+            keyPassword p.KEY_PASSWORD
+        }
+
+        release {
+            //复用debug配置
+            initWith(debug)
+            //todo 修改自己特性
+        }
+    }
+
+    buildTypes {
+        debug{
+            minifyEnabled false
+            //签名
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            minifyEnabled false
+            //签名
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets{
+        main{
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            jniLibs.srcDirs = ['ibs']
+            assets.srcDirs = ['assets']
+        }
+    }
+
+    productFlavors{
+        channel1{
+            //todo 具体属性配置
+            println(" - 生成channel1安装包 - ")
+        }
+
+        channel2{
+            //todo 具体属性配置
+            println(" - 生成channel2安装包 - ")
+        }
+    }
+}
+
+dependencies {
+    println("执行 app dependencies")
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    testCompile 'junit:junit:4.12'
+    compile project(':lib-test')
+}
+
+afterEvaluate(){
+    tasks.matching {
+        it.name.startsWith('test')
+    }.each {
+        it.actions.each {
+            println("启动 task")
+        }
+    }
+}
+
+task testTask{
+    println("---- 这是 copy test------")
+}

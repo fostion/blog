@@ -1,4 +1,5 @@
 ### Android 文章
+- [gradle](Android/Gradle.md)
 - [Android知识总结](https://github.com/nekocode/nekoblog/blob/master/Android.md)
 - [Android面试知识](Android/AndroidInterview.md)
 - [Android广播解析](Android/Android广播.md)
@@ -10,4 +11,4 @@
 - [Android 减小apk大小](https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=208008519&idx=1&sn=278b7793699a654b51588319b15b3013&mpshare=1&scene=1&srcid=1021Ng0ToxadAr5CMzU5QZYj&pass_ticket=C1YkZeN2H2y6%2B6VT1q6mGSvKt4IjS7O0nRmWTaCU1wPofTgEEx2eKq2rKTUQxJ8v#rd)
 - [Android 混淆打包工具](http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=208135658&idx=1&sn=ac9bd6b4927e9e82f9fa14e396183a8f#rd)
 - [Android NDK 开发](Android/AndroidNDK开发.md)
-- [Android TV 开发](Android/Android TV.md)
+- [Android TV 开发](Android/AndroidTV.md)

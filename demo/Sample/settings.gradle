@@ -2,7 +2,7 @@
  * Multiple-Project Build 执行gradle 脚本的时候
  * 这里首先运行 -> 然后按照include中的module依次打包执行
  */
-include ':app', ':lib-test'
+include ':app', ':lib-test', ':sample-designpattern'
 
 //自定义方法
 def initMyGradleFunction() {

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+// gradle 配置 sample
 android {
     println("----------------")
     println("project : "+project.getProjectDir().absolutePath)

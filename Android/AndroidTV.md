@@ -18,16 +18,16 @@
  - TV-LG:应用属于游戏类型，且显示在游戏栏
  - TV-LS:用户选择桌面banner且运行应用成功   
  <br/>
- 
+
 - Layout
  - TV-LO：layout摆放规则
 
  ```
-       1. 布局保持一个方向，电视屏幕是横向的
-       2. 导航栏放在屏幕最左或最右，保持内容的垂直空间
-       3. 界面最好分为几部分内容，使用Fragment,GridView
-       4. 使用RelativeLayout和LinearLayout控制子View，这些组件允许系统适配
-       5. 设置margin属性，避免混乱子view
+ 1. 布局保持一个方向，电视屏幕是横向的
+ 2. 导航栏放在屏幕最左或最右，保持内容的垂直空间
+ 3. 界面最好分为几部分内容，使用Fragment,GridView
+ 4. 使用RelativeLayout和LinearLayout控制子View，这些组件允许系统适配
+ 5. 设置margin属性，避免混乱子view
  ```  
  - TV-TC:显示重要文本必须在16sp以上
  - TV-TA:应用所有字体显示在12sp以上

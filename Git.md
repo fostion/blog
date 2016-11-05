@@ -171,3 +171,22 @@ git pull ../TestProject lib-module1(从TestProject中把lib-module1库复制出�
 git filter-branch -f --index-filter "git rm -r -f -q --cached --ignore-unmatch module1" --prune-empty HEAD
 
 ```
+
+#### ssh生成
+```
+1. 进入.ssh文件夹
+cd ~/.ssh/   //若是没有该文件夹，则自行创建 mkdir ~/.ssh
+
+2. 配置参数
+git config --global user.name "userName"
+git config --global user.email "userEmail@xx.com"
+
+3. 生成key
+ssh-keygen -t rsa -C "userEmail@xx.com"
+
+4. 连续按3次回车跳过设置密码
+
+5. 进入.ssh文件夹，用记事本打开id_rsa.pub，复制里面内容
+
+6. 将ssh key 添加到账号key下，终端环境下使用时选择yes
+```

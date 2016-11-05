@@ -3,20 +3,17 @@
 [微信团队资源混淆](http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=208135658&idx=1&sn=ac9bd6b4927e9e82f9fa14e396183a8f#rd)
 
 ##### 混淆作用：
-```
   1. 避免安全加固，避免被反编译时暴露代码
   2. 删除无用代码，方法和资源，减小apk大小
-```
+
 
 
 ##### 注意：
-```
 混淆必须在项目初期开始，否则一旦项目拥有大量代码，此刻混淆则会出现异常代码，同时混淆不是万能的，该破解还是会破解抓http包,因此根据实际项目考虑，若是使用则必须保存`mapping.txt`文件，对照着混淆源代码才能查询bug，否则无法修复bug因为混淆无法知道真实位置
-```
+
 
 
 ##### 混淆原则：
-```
   1. jni方法不可混淆
   2. 反射用到的类不混淆（否则反射可能有问题）
   3. AndroidManifest中的类不混淆，四大组件、Application的子类、Framework层所有的类默认不进行混淆
@@ -24,7 +21,7 @@
   5. 使用Gson、fastjson等框架时，所写的json对象类不混淆，否则无法将json解析成对应的对象
   6. 使用第三方开源库或者引用其他第三方sdk包时，需要在混淆中加入对应的混淆规则
   7. 使用webview调用JS也要保证接口不混淆
-```
+
 
 
 ##### gradle脚本使用
@@ -47,7 +44,6 @@ release {
 
 
 ##### 规则：
-```
   1. libraryjars class_path 应用依赖包，如android-support-v4
   2. -keep [,modifier,...] class_specification 不混淆某些类
   3. -keepclassmembers [,modifier,..] class_specification 不混淆类成员
@@ -57,7 +53,6 @@ release {
   7. -keepclasseswithmembernames 不混淆类机器成员名
   8. -assumenosideeffects class_specification 驾驶调用不产生任何影响，在proguard代码优化时调用remove,如system.out.print和log.v
   9. -dontwarn [class_filter] 不提示warnning
-```
 
 
 

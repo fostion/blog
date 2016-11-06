@@ -1,4 +1,4 @@
-#### Android Proguard混淆
+## Android Proguard混淆
 [网址](https://developer.android.com/studio/build/shrink-code.html)
 [微信团队资源混淆](http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=208135658&idx=1&sn=ac9bd6b4927e9e82f9fa14e396183a8f#rd)
 

@@ -1,7 +1,10 @@
 ## ANR监测
 
 #### 检测ANR的两种方式
-1. 利用Looper
+
+1. 利用Looper 使用handler不断发消息，若在超过时间内未执行将视为ANR
+
+2. 使用Choreographer，监听阶段时间内帧数，计算出fps，判断是否ANR
 
 #### 参考博客
 **第一类型**   

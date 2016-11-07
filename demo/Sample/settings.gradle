@@ -1,0 +1,13 @@
+/**
+ * Multiple-Project Build 执行gradle 脚本的时候
+ * 这里首先运行 -> 然后按照include中的module依次打包执行
+ */
+include ':app', ':lib-gradle-test', ':sample-designpattern', ':sample-app-test'
+
+//自定义方法
+def initMyGradleFunction() {
+    println('这是我在编译的时候执行的操作')
+}
+
+//gradle 加载的时候会中
+initMyGradleFunction()

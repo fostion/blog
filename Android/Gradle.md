@@ -227,6 +227,15 @@ productFlavors{
 - productFlavors里面的不同上线包默认是与defaultConfig 使用共同属性，若是需要特点重写即可
 - 这种方式生成的渠道包一共有4种：channel1的debug和release，channel2的debug和release包
 
+**SdkVision须知**
+- minSdkVersion `运行应用最低版本号`
+- compileSdkVersion `编译时使用SDK版本号`
+- targetSdkVersion `向前兼容版本号`，若系统版本号大于targetSdkVersion则使用targetSdkVersion兼容的API，小于或者等于就使用当前系统版本API，例如：targetSdkVersion = 4.4, 运行在5.0的手机里，那么运行的API还是使用4.4向前兼容，防止出错
+
+参考资料：
+[如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion](http://chinagdg.org/2016/01/picking-your-compilesdkversion-minsdkversion-targetsdkversion/)    
+[Android targetSdkVersion 原理](http://www.open-open.com/lib/view/open1453252891870.html)
+
 
 **apk各种签名及原理**
 1. 使用Gradle实现，采用productFlavors条件编译没有兼容问题，方便集成，但是每次重新打包，速度比较慢

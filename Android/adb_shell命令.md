@@ -53,4 +53,8 @@ adb shell ls
 
 //进入文件夹
 adb shell cd <folder>
+
+//发送广播 action:testLinkinService  pageName:cc.tv.sample ei:params key:number value:1 
+adb shell am broadcast -a testLinkinService --es PACKAGE_NAME cc.tv.sample --ei number 1
+
 ```

@@ -30,3 +30,24 @@
   5. 当消息被处理的时候才会发送给相应的广播接受者处理   
 
   注意：AMS向应用进程发送广播时，采用的是异步进程间通信Binder驱动体系。
+
+
+##### 动态广播注册
+  ```
+  //注册静态广播
+IntentFilter intentFilter = new IntentFilter();
+intentFilter.addAction("yourAction");
+registerReceiver(yourBrocastReceiver,intentFilter);
+
+//取消绑定广播
+ unregisterReceiver(cmdBrocastReceiver);
+  ```
+
+##### 静态广播注册
+```
+<receiver android:name=".yourBrocastReceiver">
+  <intent-filter>
+      <action android:name="yourAction" />
+  </intent-filter>
+</receiver>
+```

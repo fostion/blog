@@ -2,7 +2,7 @@ package cc.fs.sample;
 
 import android.app.Application;
 
-import cc.fs.sample.anr_monitor.ui_monitor.UIHandlerMonitor;
+import cc.fs.sample.uimonitor.anr_monitor.ui_monitor.UIHandlerMonitor;
 
 public class App  extends Application{
 

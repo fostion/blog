@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/activity_main"
     android:orientation="vertical"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context="cc.fs.sample.MainActivity">
+    tools:context="cc.fs.sample.uimonitor.MainActivity">
 
     <ImageView
         android:id="@+id/img"

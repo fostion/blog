@@ -1,4 +1,4 @@
-package cc.fs.sample.anr_monitor.choreographer;
+package cc.fs.sample.uimonitor.anr_monitor.choreographer;
 
 import android.os.Handler;
 import android.os.Looper;

@@ -1,4 +1,4 @@
-package cc.fs.sample;
+package cc.fs.sample.uimonitor;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,7 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import cc.fs.sample.anr_monitor.choreographer.UIChoMonitor;
+import cc.fs.sample.R;
+import cc.fs.sample.uimonitor.anr_monitor.choreographer.UIChoMonitor;
 
 public class MainActivity extends AppCompatActivity {
 

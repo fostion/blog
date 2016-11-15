@@ -1,4 +1,4 @@
-package cc.fs.sample.anr_monitor.ui_monitor;
+package cc.fs.sample.uimonitor.anr_monitor.ui_monitor;
 
 import android.os.Handler;
 import android.os.Looper;

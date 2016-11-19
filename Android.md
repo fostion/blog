@@ -15,3 +15,5 @@
 - [Android TV 开发](Android/AndroidTV.md)
 - [adb_shell命令](Andorid/adb_shell命令.md)   
 - [Andorid_AIDL开发](Android/Android_AIDL开发.md)
+- [二维码](Android/二维码.md)
+- [图片相关](Android/图片相关.md)

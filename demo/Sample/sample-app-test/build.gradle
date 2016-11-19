@@ -21,6 +21,24 @@ android {
         }
     }
 
+    signingConfigs {
+        //签名
+        debug {
+            Properties p = new Properties()
+            p.load(new FileInputStream(project.file('../keystore.properties')))
+            storeFile file("../test.jks")
+            storePassword p.KEYSTORE_PASSWORD
+            keyAlias p.KEY_ALIAS
+            keyPassword p.KEY_PASSWORD
+        }
+
+        release {
+            //复用debug配置
+            initWith(debug)
+            //todo 修改自己特性
+        }
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'src/main/AndroidManifest.xml'

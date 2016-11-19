@@ -8,6 +8,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import cc.fs.sample.R;
+import cc.fs.sample.utils.SpanUtil;
 
 public class SSActivity extends Activity {
 

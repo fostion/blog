@@ -1,10 +1,13 @@
-package cc.fs.sample.textview;
+package cc.fs.sample.utils;
 
 import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
 
+/**
+ * SpannableString
+ */
 public class SpanUtil {
 
     public static SpannableString createDrawableSpan(Drawable drawable) {

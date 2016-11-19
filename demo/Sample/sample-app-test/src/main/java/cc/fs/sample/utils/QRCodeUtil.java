@@ -1,4 +1,4 @@
-package cc.fs.sample.qrcode;
+package cc.fs.sample.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Binarizer;
 import com.google.zxing.BinaryBitmap;
@@ -15,21 +14,20 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
-import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.common.StringUtils;
 import com.google.zxing.qrcode.QRCodeReader;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 二维码
+ */
 public class QRCodeUtil {
-
-    private static final int WIDTH = 300;
-    private static final int HEIGHT = 300;
+    private static final int WIDTH = 400;
+    private static final int HEIGHT = 400;
 
     public static void createQRCodeBitmap(String content, CreateListener listener) {
         createQRCodeBitmap(content, (Bitmap) null, listener);
@@ -48,10 +46,16 @@ public class QRCodeUtil {
     }
 
     public static void createQRCodeBitmap(String content, Bitmap logoBitmap, CreateListener listener) {
+        if (TextUtils.isEmpty(content)) {
+            return;
+        }
         new QRCodeBitmapCreator(content, logoBitmap, listener).execute();
     }
 
     public static void getQRCodeContent(Bitmap bitmap, ScannerListener listener) {
+        if (bitmap == null) {
+            return;
+        }
         new QRCodeBitmapScanner(bitmap, listener).execute();
     }
 
@@ -113,11 +117,12 @@ public class QRCodeUtil {
             int width = WIDTH;
             int height = HEIGHT;
             Map<EncodeHintType, Object> params = new HashMap<>();
-            //设置纠错 最高级别
-            params.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+            //设置纠错 最高级别 但是会出现黑边和白色边框
+            params.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.Q);
             //设置编码
             params.put(EncodeHintType.CHARACTER_SET, "UTF-8");
-            params.put(EncodeHintType.MARGIN, 1);
+            //设置白色边框宽度
+            params.put(EncodeHintType.MARGIN, 0);
             BitMatrix bitMatrix = null;
             try {
                 bitMatrix = new QRCodeWriter().encode(content, BarcodeFormat.QR_CODE, width, height, params);
@@ -143,7 +148,7 @@ public class QRCodeUtil {
                 if (logoBitmap != null) return addLogo(bitmap, logoBitmap);
 
                 return bitmap;
-            } catch (WriterException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
@@ -171,8 +176,8 @@ public class QRCodeUtil {
                 return srcBitmap;
             }
 
-            //logo大小为二维码整体大小的1/5
-            float scale = srcWidth * 1.0f / (5 * logoWidth);
+            //logo大小为二维码整体大小的1/4
+            float scale = srcWidth * 1.0f / (4 * logoWidth);
             Bitmap bitmap = Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
             try {
                 Canvas canvas = new Canvas(bitmap);
@@ -196,11 +201,11 @@ public class QRCodeUtil {
         }
     }
 
-    interface CreateListener {
+    public interface CreateListener {
         void run(@Nullable Bitmap bitmap);
     }
 
-    interface ScannerListener {
+    public interface ScannerListener {
         void run(@Nullable String content);
     }
 

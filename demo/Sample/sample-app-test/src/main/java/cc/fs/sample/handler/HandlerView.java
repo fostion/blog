@@ -4,26 +4,26 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-
 import java.util.ArrayList;
 import java.util.List;
+import cc.fs.sample.utils.L;
 
+//通过 adb logcat -v time -s HandlerView 查看log情况
 public class HandlerView extends View {
-
-    int keepRun = 1;
+    private final String TAG = "HandlerView";
+    private int keepRun = 1;
 
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if (msg.what != keepRun) {
-                L("结束消息");
+                L.i(TAG,"结束消息");
                 return;
             }
 
             if (tasks == null || tasks.isEmpty()) {
-                L("结束消息");
+                L.i(TAG,"结束消息");
                 return;
             }
             for (Task task : tasks) {
@@ -44,7 +44,7 @@ public class HandlerView extends View {
 
         //判断显示次数
         if (task.showedTime >= task.showTime) {
-            L("超过显示次数,移除："+task.id);
+            L.i(TAG,"超过显示次数,移除："+task.id);
             tasks.remove(task);
             return;
         }
@@ -53,14 +53,14 @@ public class HandlerView extends View {
         if(task.state == 1 && curTime - task.lastStartTime >= task.duration){
             task.state = 0;
             task.lastStopTime = curTime;
-            L("隐藏任务");
+            L.i(TAG,"隐藏任务");
         }
 
         if(task.state == 0 && curTime - task.lastStopTime >= task.internal){
             task.state = 1;
             task.showedTime++;
             task.lastStartTime = curTime;
-            L("显示任务");
+            L.i(TAG,"显示任务");
         }
     }
 
@@ -93,7 +93,7 @@ public class HandlerView extends View {
     }
 
     private void init() {
-        tasks.add(new Task("任务一", System.currentTimeMillis() / 1000 + 5, System.currentTimeMillis() / 1000 + 200, 5, 6, 4));
+        tasks.add(new Task("任务一", System.currentTimeMillis() / 1000 + 5, System.currentTimeMillis() / 1000 + 200, 5, 6, 100000));
 //        tasks.add(new Task("任务二",System.currentTimeMillis()/1000 + 20,System.currentTimeMillis()/1000+200,20,40,10));
         mHandler.sendEmptyMessage(keepRun);
     }
@@ -122,9 +122,4 @@ public class HandlerView extends View {
             this.showTime = showTime;
         }
     }
-
-    public void L(String msg){
-        Log.e("--执行任务--",msg);
-    }
-
 }

@@ -1,4 +1,4 @@
-## adb shell命令
+#### adb shell命令
 ```
 //开启
 adb start-server
@@ -15,8 +15,15 @@ adb connect <ip>
 //查看log
 adb logcat
 
+//查看某个输出结果
+adb logcat -v time -s yourTag
+
 //将log输出到当前目录文件中
 adb logcat >> log.txt
+
+//发送广播
+adb shell am broadcast -a action --es PACKAGE_NAME yourPage --ei yourkey yourvalue
+pause
 
 //重启机器
 adb reboot
@@ -53,8 +60,4 @@ adb shell ls
 
 //进入文件夹
 adb shell cd <folder>
-
-//发送广播 action:testLinkinService  pageName:cc.tv.sample ei:params key:number value:1 
-adb shell am broadcast -a testLinkinService --es PACKAGE_NAME cc.tv.sample --ei number 1
-
 ```

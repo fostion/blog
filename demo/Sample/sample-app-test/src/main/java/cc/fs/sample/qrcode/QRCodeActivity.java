@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import cc.fs.sample.R;
+import cc.fs.sample.utils.QRCodeUtil;
 
 public class QRCodeActivity extends AppCompatActivity {
 
@@ -27,6 +29,7 @@ public class QRCodeActivity extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.image);
         Button btn1 = (Button) findViewById(R.id.btn1);
         Button btn2 = (Button) findViewById(R.id.btn2);
+        Button btn3 = (Button) findViewById(R.id.btn3);
         txt = (TextView) findViewById(R.id.txt);
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -35,13 +38,21 @@ public class QRCodeActivity extends AppCompatActivity {
                 createQRCode();
             }
         });
-
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 readQRCode();
             }
         });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LinearLayout.LayoutParams layoutParams
+                        = new LinearLayout.LayoutParams(image.getMeasuredWidth() + 20, image.getMeasuredHeight() + 20);
+                image.setLayoutParams(layoutParams);
+            }
+        });
+
     }
 
     private void readQRCode() {
@@ -56,8 +67,8 @@ public class QRCodeActivity extends AppCompatActivity {
     }
 
     private void createQRCode() {
-        Bitmap bitmap = ((BitmapDrawable) ContextCompat.getDrawable(this, R.mipmap.ic_launcher)).getBitmap();
-        QRCodeUtil.createQRCodeBitmap("http://www.baidu.com","/storage/sdcard0/OSChina/Camera/thumb_head.jpg", new QRCodeUtil.CreateListener() {
+        Bitmap bitmap = ((BitmapDrawable) ContextCompat.getDrawable(this, R.mipmap.ic_logo)).getBitmap();
+        QRCodeUtil.createQRCodeBitmap("http://www.baidu.com", bitmap, new QRCodeUtil.CreateListener() {
             @Override
             public void run(Bitmap bitmap) {
                 if (bitmap != null) {

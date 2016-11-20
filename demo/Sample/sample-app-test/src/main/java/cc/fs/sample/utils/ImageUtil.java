@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,7 +23,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
+import android.telecom.Call;
 import android.text.TextUtils;
+
+import com.google.zxing.common.StringUtils;
 
 /**
  * 图片处理
@@ -114,9 +118,9 @@ public class ImageUtil {
     }
 
     // byte[]转换成Bitmap
-    public static Bitmap bytes2Bitmap(byte[] b) {
-        if (b != null && b.length != 0) {
-            return BitmapFactory.decodeByteArray(b, 0, b.length);
+    public static Bitmap bytes2Bitmap(byte[] data) {
+        if (data != null && data.length != 0) {
+            return BitmapFactory.decodeByteArray(data, 0, data.length);
         }
 
         return null;
@@ -152,14 +156,14 @@ public class ImageUtil {
         return inSampleSize;
     }
 
-    public static void saveBitmap(final Bitmap bitmap, final String savePath) {
+    public static void saveBitmap(final Bitmap bitmap, final String savePath, final Callback<Boolean> callback) {
         if (bitmap == null || TextUtils.isEmpty(savePath)) {
             return;
         }
 
-        new Thread(new Runnable() {
+        new AsyncTask<Void, Void, Boolean>() {
             @Override
-            public void run() {
+            protected Boolean doInBackground(Void... params) {
                 try {
                     File file = new File(savePath);
                     if (file.exists()) {
@@ -169,11 +173,28 @@ public class ImageUtil {
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fileOutputStream);
                     fileOutputStream.flush();
                     fileOutputStream.close();
+                    return true;
                 } catch (Exception e) {
                     e.printStackTrace();
+                    return false;
                 }
             }
-        }).start();
+
+            @Override
+            protected void onPostExecute(Boolean res) {
+                if (callback != null) {
+                    callback.run(res);
+                }
+            }
+        }.execute();
+    }
+
+    public static Bitmap decodeSampledBitmapFromFile(String filePath){
+        if(TextUtils.isEmpty(filePath)){
+            return null;
+        }
+
+        return BitmapFactory.decodeFile(filePath);
     }
 
     public static Bitmap decodeSampledBitmapFromFile(String filePath,
@@ -220,16 +241,14 @@ public class ImageUtil {
         }
 
         Bitmap newbmp = null;
-        if (bitmap != null) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            Matrix matrix = new Matrix();
-            float scaleWidht = ((float) w / width);
-            float scaleHeight = ((float) h / height);
-            matrix.postScale(scaleWidht, scaleHeight);
-            newbmp = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix,
-                    true);
-        }
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        Matrix matrix = new Matrix();
+        float scaleWidth = ((float) w / width);
+        float scaleHeight = ((float) h / height);
+        matrix.postScale(scaleWidth, scaleHeight);
+        newbmp = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix,
+                true);
         return newbmp;
     }
 
@@ -281,8 +300,66 @@ public class ImageUtil {
         return output;
     }
 
-    public static void compressToJpg(final Bitmap bitmap, final Callback<byte[]> cb) {
-        if (bitmap == null || cb == null) {
+    public static void compressImage(final Bitmap bitmap, final Callback<Bitmap> callback) {
+        if (bitmap == null) {
+            if (callback != null) callback.run(null);
+            return;
+        }
+
+        //压缩图片
+        new AsyncTask<Void, Void, Bitmap>() {
+            @Override
+            protected Bitmap doInBackground(Void... params) {
+                //分辨率压缩
+                int bWidth = bitmap.getWidth();
+                int bHeight = bitmap.getHeight();
+                int targetSize = 480;
+                float scale = 1.0f;
+                if (bWidth > bHeight) {
+                    scale = 1.0f * targetSize / bWidth;
+                } else {
+                    scale = 1.0f * targetSize / bHeight;
+                }
+                int targetWidth = (int) (bWidth * scale);
+                int targetHeight = (int) (bHeight * scale);
+                Bitmap zBitmap = zoomBitmap(bitmap, targetWidth, targetHeight);
+                //转成jpeg压缩 到100k 以下
+                zBitmap = compressImage(zBitmap, 100);
+                return zBitmap;
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap bitmap) {
+                if (callback != null) {
+                    callback.run(bitmap);
+                }
+            }
+        }.execute();
+    }
+
+    //转成jpeg压缩目标大小 单位kb
+    public static Bitmap compressImage(Bitmap bitmap, int tarSize) {
+        if (bitmap == null) {
+            return null;
+        }
+
+        int quality = 100;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, quality, baos);
+        byte[] data = baos.toByteArray();
+        int curSize = data.length / 1024;
+        while (curSize <= tarSize) {
+            quality -= 5;
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, baos);
+            data = baos.toByteArray();
+            curSize = data.length / 1024;
+        }
+
+        return bytes2Bitmap(data);
+    }
+
+    public static void compressToJpg(final Bitmap bitmap, final Callback<byte[]> callback) {
+        if (bitmap == null) {
             return;
         }
 
@@ -304,7 +381,9 @@ public class ImageUtil {
 
             @Override
             protected void onPostExecute(byte[] result) {
-                cb.run(result);
+                if (callback != null) {
+                    callback.run(result);
+                }
             }
         }.execute();
     }

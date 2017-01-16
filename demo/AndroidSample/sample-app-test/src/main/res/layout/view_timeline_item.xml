@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <cc.fs.sample.widget.BubbleImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/pic1"
+        android:scaleType="centerInside"
+        app:bubble_angle="10dp"
+        app:bubble_arrowLocation="left"
+        app:bubble_arrowOffset="-8dp"
+        app:bubble_arrowTop="15dp"
+        app:bubble_arrowWidth="8dp"
+        app:bubble_arrowHeight="12dp"
+        android:id="@+id/bubbleImageView" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:textSize="20dp"
+        android:text="选择专业"/>
+
+    <TextView
+        android:id="@+id/tvTab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="180dp"
+        android:maxLines="3"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginLeft="26dp"
+        android:textSize="15dp"
+        tools:text="选择专业"/>
+</RelativeLayout>

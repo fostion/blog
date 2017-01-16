@@ -1,4 +1,4 @@
-package cc.fs.sample.textview;
+package cc.fs.sample.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;

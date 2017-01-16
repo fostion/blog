@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IconTextView">
+        <attr name="drawableLeftWidth" format="dimension|reference" />
+        <attr name="drawableLeftHeight" format="dimension|reference" />
+        <attr name="drawableLeftPadding" format="dimension|reference" />
+        <attr name="drawableRightWidth" format="dimension|reference" />
+        <attr name="drawableRightHeight" format="dimension|reference" />
+        <attr name="drawableRightPadding" format="dimension|reference" />
+        <attr name="drawableTopWidth" format="dimension|reference" />
+        <attr name="drawableTopHeight" format="dimension|reference" />
+        <attr name="drawableTopPadding" format="dimension|reference" />
+        <attr name="drawableBottomWidth" format="dimension|reference" />
+        <attr name="drawableBottomHeight" format="dimension|reference" />
+        <attr name="drawableBottomPadding" format="dimension|reference" />
+    </declare-styleable>
+</resources>

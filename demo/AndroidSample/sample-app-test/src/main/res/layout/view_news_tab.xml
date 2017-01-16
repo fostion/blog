@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="4">
+        <cc.fs.sample.textview.IconTextView
+            android:id="@+id/tag1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawableTopWidth="32dp"
+            app:drawableTopHeight="32dp"
+            android:gravity="center_horizontal"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="tag1"/>
+
+        <cc.fs.sample.textview.IconTextView
+            android:id="@+id/tag2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawableTopWidth="32dp"
+            app:drawableTopHeight="32dp"
+            android:gravity="center_horizontal"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="tag2"/>
+
+        <cc.fs.sample.textview.IconTextView
+            android:id="@+id/tag3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawableTopWidth="32dp"
+            app:drawableTopHeight="32dp"
+            android:gravity="center_horizontal"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="tag3"/>
+
+        <cc.fs.sample.textview.IconTextView
+            android:id="@+id/tag4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawableTopWidth="32dp"
+            app:drawableTopHeight="32dp"
+            android:gravity="center_horizontal"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="tag4"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:weightSum="4">
+        <cc.fs.sample.textview.IconTextView
+            android:id="@+id/tag5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawableTopWidth="32dp"
+            app:drawableTopHeight="32dp"
+            android:gravity="center_horizontal"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="tag5"/>
+
+        <cc.fs.sample.textview.IconTextView
+            android:id="@+id/tag6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawableTopWidth="32dp"
+            app:drawableTopHeight="32dp"
+            android:gravity="center_horizontal"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="tag6"/>
+
+        <cc.fs.sample.textview.IconTextView
+            android:id="@+id/tag7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawableTopWidth="32dp"
+            app:drawableTopHeight="32dp"
+            android:gravity="center_horizontal"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="tag7"/>
+
+        <cc.fs.sample.textview.IconTextView
+            android:id="@+id/tag8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawableTopWidth="32dp"
+            app:drawableTopHeight="32dp"
+            android:gravity="center_horizontal"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:text="tag8"/>
+    </LinearLayout>
+
+</LinearLayout>

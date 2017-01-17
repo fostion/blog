@@ -4,19 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="128dp">
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:background="@color/colorPrimary"/>
+
     <cc.fs.sample.widget.BubbleImageView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="128dp"
         android:src="@drawable/pic1"
+        android:layout_marginLeft="30dp"
         android:scaleType="centerInside"
-        app:bubble_angle="10dp"
+        app:bubble_corner_radius="10dp"
         app:bubble_arrowLocation="left"
-        app:bubble_arrowOffset="-8dp"
-        app:bubble_arrowTop="15dp"
-        app:bubble_arrowWidth="8dp"
-        app:bubble_arrowHeight="12dp"
-        android:id="@+id/bubbleImageView" />
+        app:bubble_arrow_anger="-8dp"
+        app:bubble_arrowTop="8dp"
+        app:bubble_arrowWidth="10dp"
+        app:bubble_arrowHeight="15dp"
+        android:id="@+id/mImageView" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_timeline_circle"
+        android:layout_alignTop="@+id/mImageView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
+
+    <ImageView
+        android:id="@+id/ivCheck"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        tools:visibility="gone"
+        android:src="@mipmap/ic_launcher"/>
 
     <TextView
         android:id="@+id/tvTitle"
@@ -24,19 +48,56 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="55dp"
+        android:textStyle="bold"
         android:textSize="20dp"
         android:text="选择专业"/>
 
     <TextView
-        android:id="@+id/tvTab"
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="180dp"
-        android:maxLines="3"
+        android:maxLines="2"
         android:textColor="@android:color/white"
+        android:visibility="gone"
+        android:textSize="20dp"
+        tools:text="02月14日"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/tvTitle"
-        android:layout_marginLeft="26dp"
-        android:textSize="15dp"
-        tools:text="选择专业"/>
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="180dp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle"
+        android:maxLines="2"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        tools:text="如何选择专业?"/>
+
+    <TextView
+        android:id="@+id/tvNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvTitle"
+        android:layout_toRightOf="@+id/tvTitle"
+        android:maxLines="4"
+        android:layout_marginLeft="20dp"
+        android:ellipsize="end"
+        android:maxWidth="160dp"
+        android:textSize="14dp"
+        android:visibility="gone"
+        android:textColor="@android:color/white"
+        tools:text="选择专业非常重要选择专业非常重要选择专业非常重要选择专业非常重要选择专业非常重要选择专业非常重要"/>
+
+
 </RelativeLayout>

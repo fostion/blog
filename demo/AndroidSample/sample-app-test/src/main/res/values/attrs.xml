@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <declare-styleable name="TimelineView">
+        <attr name="drawable" format="reference"/>
+        <attr name="titleText" format="string|reference"/>
+        <attr name="tipText" format="string|reference"/>
+    </declare-styleable>
+
     <declare-styleable name="IconTextView">
         <attr name="drawableLeftWidth" format="dimension|reference" />
         <attr name="drawableLeftHeight" format="dimension|reference" />

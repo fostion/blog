@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--阶段一-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@android:color/white"
+            android:text="阶段一"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_red_light"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="35dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="选择专业"
+            app:tipText="如何选择专业?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab1"
+            android:layout_alignRight="@+id/tab1"
+            android:layout_below="@+id/tab1"
+            android:layout_marginTop="-25dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="选择学校"
+            app:tipText="如何选择学校?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab2"
+            android:layout_alignRight="@+id/tab2"
+            android:layout_below="@+id/tab2"
+            android:layout_marginTop="-25dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="语言考试"
+            app:tipText="如何语言考试?"/>
+
+        <!--阶段二-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/tab3"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/tab3"
+            android:text="阶段二"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_red_light"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab3"
+            android:layout_alignRight="@+id/tab3"
+            android:layout_below="@+id/tab3"
+            android:layout_marginTop="35dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="文本撰写"
+            app:tipText="如何文本撰写?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab4"
+            android:layout_alignRight="@+id/tab4"
+            android:layout_below="@+id/tab4"
+            android:layout_marginTop="-25dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="申请截至"
+            app:tipText="什么时候申请截至?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab5"
+            android:layout_alignRight="@+id/tab5"
+            android:layout_below="@+id/tab5"
+            android:layout_marginTop="-25dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="存款准备"
+            app:tipText="准备多少存款?"/>
+
+        <!--阶段三-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/tab6"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/tab6"
+            android:text="阶段三"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_red_light"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab6"
+            android:layout_alignRight="@+id/tab6"
+            android:layout_below="@+id/tab6"
+            android:layout_marginTop="35dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="确认offer"
+            app:tipText="offer收到时间?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab7"
+            android:layout_alignRight="@+id/tab7"
+            android:layout_below="@+id/tab7"
+            android:layout_marginTop="-25dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="缴纳定金"
+            app:tipText="如何缴纳定金?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab8"
+            android:layout_alignRight="@+id/tab8"
+            android:layout_below="@+id/tab8"
+            android:layout_marginTop="-25dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="进行体检"
+            app:tipText="如何进行体检?"/>
+
+        <!--阶段四-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/tab9"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/tab9"
+            android:text="阶段四"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_red_light"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab9"
+            android:layout_alignRight="@+id/tab9"
+            android:layout_below="@+id/tab9"
+            android:layout_marginTop="35dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="办理签证"
+            app:tipText="如何办理签证?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab10"
+            android:layout_alignRight="@+id/tab10"
+            android:layout_below="@+id/tab10"
+            android:layout_marginTop="35dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="订购房子"
+            app:tipText="订购房子?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab11"
+            android:layout_alignRight="@+id/tab11"
+            android:layout_below="@+id/tab11"
+            android:layout_marginTop="35dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="订购机票"
+            app:tipText="订购机票?"/>
+
+        <!--阶段五-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/tab12"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/tab12"
+            android:text="阶段五"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/holo_red_light"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab12"
+            android:layout_alignRight="@+id/tab12"
+            android:layout_below="@+id/tab12"
+            android:layout_marginTop="35dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="安排接机"
+            app:tipText="如何安排接机?"/>
+
+        <cc.fs.sample.widget.TimelineView
+            android:id="@+id/tab14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tab13"
+            android:layout_alignRight="@+id/tab13"
+            android:layout_below="@+id/tab13"
+            android:layout_marginTop="-25dp"
+            app:drawable="@drawable/pic1"
+            app:titleText="行李准备"
+            app:tipText="如何行李准备?"/>
+
+    </RelativeLayout>
+    
+</ScrollView>

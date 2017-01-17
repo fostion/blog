@@ -1,57 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/bannder"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/pic1" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:weightSum="4">
+
         <cc.fs.sample.widget.IconTextView
             android:id="@+id/tag1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:drawableTopWidth="32dp"
-            app:drawableTopHeight="32dp"
-            android:gravity="center_horizontal"
             android:drawableTop="@mipmap/ic_launcher"
-            android:text="tag1"/>
+            android:gravity="center_horizontal"
+            android:text="tag1"
+            app:drawableTopHeight="32dp"
+            app:drawableTopWidth="32dp" />
 
         <cc.fs.sample.widget.IconTextView
             android:id="@+id/tag2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:drawableTopWidth="32dp"
-            app:drawableTopHeight="32dp"
-            android:gravity="center_horizontal"
             android:drawableTop="@mipmap/ic_launcher"
-            android:text="tag2"/>
+            android:gravity="center_horizontal"
+            android:text="tag2"
+            app:drawableTopHeight="32dp"
+            app:drawableTopWidth="32dp" />
 
         <cc.fs.sample.widget.IconTextView
             android:id="@+id/tag3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:drawableTopWidth="32dp"
-            app:drawableTopHeight="32dp"
-            android:gravity="center_horizontal"
             android:drawableTop="@mipmap/ic_launcher"
-            android:text="tag3"/>
+            android:gravity="center_horizontal"
+            android:text="tag3"
+            app:drawableTopHeight="32dp"
+            app:drawableTopWidth="32dp" />
 
         <cc.fs.sample.widget.IconTextView
             android:id="@+id/tag4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:drawableTopWidth="32dp"
-            app:drawableTopHeight="32dp"
-            android:gravity="center_horizontal"
             android:drawableTop="@mipmap/ic_launcher"
-            android:text="tag4"/>
+            android:gravity="center_horizontal"
+            android:text="tag4"
+            app:drawableTopHeight="32dp"
+            app:drawableTopWidth="32dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,64 +66,49 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:weightSum="4">
+
         <cc.fs.sample.widget.IconTextView
             android:id="@+id/tag5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:drawableTopWidth="32dp"
-            app:drawableTopHeight="32dp"
-            android:gravity="center_horizontal"
             android:drawableTop="@mipmap/ic_launcher"
-            android:text="tag5"/>
+            android:gravity="center_horizontal"
+            android:text="tag5"
+            app:drawableTopHeight="32dp"
+            app:drawableTopWidth="32dp" />
 
         <cc.fs.sample.widget.IconTextView
             android:id="@+id/tag6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:drawableTopWidth="32dp"
-            app:drawableTopHeight="32dp"
-            android:gravity="center_horizontal"
             android:drawableTop="@mipmap/ic_launcher"
-            android:text="tag6"/>
+            android:gravity="center_horizontal"
+            android:text="tag6"
+            app:drawableTopHeight="32dp"
+            app:drawableTopWidth="32dp" />
 
         <cc.fs.sample.widget.IconTextView
             android:id="@+id/tag7"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:drawableTopWidth="32dp"
-            app:drawableTopHeight="32dp"
-            android:gravity="center_horizontal"
             android:drawableTop="@mipmap/ic_launcher"
-            android:text="tag7"/>
+            android:gravity="center_horizontal"
+            android:text="tag7"
+            app:drawableTopHeight="32dp"
+            app:drawableTopWidth="32dp" />
 
         <cc.fs.sample.widget.IconTextView
             android:id="@+id/tag8"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:drawableTopWidth="32dp"
-            app:drawableTopHeight="32dp"
-            android:gravity="center_horizontal"
             android:drawableTop="@mipmap/ic_launcher"
-            android:text="tag8"/>
+            android:gravity="center_horizontal"
+            android:text="tag8"
+            app:drawableTopHeight="32dp"
+            app:drawableTopWidth="32dp" />
     </LinearLayout>
-
-
-    <cc.fs.sample.widget.BubbleImageView
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:src="@drawable/pic1"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
-        app:bubble_angle="10dp"
-        app:bubble_arrowLocation="left"
-        app:bubble_arrowOffset="-8dp"
-        app:bubble_arrowTop="15dp"
-        app:bubble_arrowWidth="8dp"
-        app:bubble_arrowHeight="12dp"
-        android:id="@+id/bubbleImageView" />
-
 </LinearLayout>

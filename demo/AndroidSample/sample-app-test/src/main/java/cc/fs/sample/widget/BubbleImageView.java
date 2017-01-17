@@ -17,7 +17,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-
 import cc.fs.sample.R;
 
 /**
@@ -31,11 +30,11 @@ public class BubbleImageView extends ImageView {
     private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;
     private static final int COLORDRAWABLE_DIMENSION = 1;
 
-    private int mAngle = dp2px(10);
+    private int mCornerRadius = dp2px(10);
     private int mArrowTop = dp2px(40);
     private int mArrowWidth = dp2px(20);
     private int mArrowHeight = dp2px(20);
-    private int mArrowOffset = 0;
+    private int mArrowAnger = 0;
     private int mArrowLocation = LOCATION_LEFT;
 
     private Rect mDrawableRect;
@@ -65,23 +64,13 @@ public class BubbleImageView extends ImageView {
 
     private void initView(AttributeSet attrs) {
         if (attrs != null) {
-            TypedArray a = getContext().obtainStyledAttributes(attrs,
-                    R.styleable.BubbleImageView);
-            mAngle = (int) a.getDimension(
-                    R.styleable.BubbleImageView_bubble_corner_radius, mAngle);
-            mArrowHeight = (int) a.getDimension(
-                    R.styleable.BubbleImageView_bubble_arrowHeight,
-                    mArrowHeight);
-            mArrowOffset = (int) a.getDimension(
-                    R.styleable.BubbleImageView_bubble_arrow_anger,
-                    mArrowOffset);
-            mArrowTop = (int) a.getDimension(
-                    R.styleable.BubbleImageView_bubble_arrowTop, mArrowTop);
-            mArrowWidth = (int) a.getDimension(
-                    R.styleable.BubbleImageView_bubble_arrowWidth, mAngle);
-            mArrowLocation = a.getInt(
-                    R.styleable.BubbleImageView_bubble_arrowLocation,
-                    mArrowLocation);
+            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BubbleImageView);
+            mCornerRadius = (int) a.getDimension(R.styleable.BubbleImageView_bubble_corner_radius, mCornerRadius);
+            mArrowHeight = (int) a.getDimension(R.styleable.BubbleImageView_bubble_arrowHeight, mArrowHeight);
+            mArrowAnger = (int) a.getDimension(R.styleable.BubbleImageView_bubble_arrow_anger, mArrowAnger);
+            mArrowTop = (int) a.getDimension(R.styleable.BubbleImageView_bubble_arrowTop, mArrowTop);
+            mArrowWidth = (int) a.getDimension(R.styleable.BubbleImageView_bubble_arrowWidth, mCornerRadius);
+            mArrowLocation = a.getInt(R.styleable.BubbleImageView_bubble_arrowLocation, mArrowLocation);
             a.recycle();
         }
         mPath = new Path();
@@ -111,42 +100,42 @@ public class BubbleImageView extends ImageView {
     }
 
     public void rightPath(RectF rect, Path path) {
-        path.moveTo(mAngle, rect.top);
+        path.moveTo(mCornerRadius, rect.top);
         path.lineTo(rect.width(), rect.top);
-        path.arcTo(new RectF(rect.right - mAngle * 2 - mArrowWidth, rect.top,
-                rect.right - mArrowWidth, mAngle * 2 + rect.top), 270, 90);
+        path.arcTo(new RectF(rect.right - mCornerRadius * 2 - mArrowWidth, rect.top,
+                rect.right - mArrowWidth, mCornerRadius * 2 + rect.top), 270, 90);
         path.lineTo(rect.right - mArrowWidth, mArrowTop);
-        path.lineTo(rect.right, mArrowTop - mArrowOffset);
+        path.lineTo(rect.right, mArrowTop - mArrowAnger);
         path.lineTo(rect.right - mArrowWidth, mArrowTop + mArrowHeight);
-        path.lineTo(rect.right - mArrowWidth, rect.height() - mAngle);
-        path.arcTo(new RectF(rect.right - mAngle * 2 - mArrowWidth, rect.bottom
-                - mAngle * 2, rect.right - mArrowWidth, rect.bottom), 0, 90);
+        path.lineTo(rect.right - mArrowWidth, rect.height() - mCornerRadius);
+        path.arcTo(new RectF(rect.right - mCornerRadius * 2 - mArrowWidth, rect.bottom
+                - mCornerRadius * 2, rect.right - mArrowWidth, rect.bottom), 0, 90);
         path.lineTo(rect.left, rect.bottom);
-        path.arcTo(new RectF(rect.left, rect.bottom - mAngle * 2, mAngle * 2
+        path.arcTo(new RectF(rect.left, rect.bottom - mCornerRadius * 2, mCornerRadius * 2
                 + rect.left, rect.bottom), 90, 90);
         path.lineTo(rect.left, rect.top);
-        path.arcTo(new RectF(rect.left, rect.top, mAngle * 2 + rect.left,
-                mAngle * 2 + rect.top), 180, 90);
+        path.arcTo(new RectF(rect.left, rect.top, mCornerRadius * 2 + rect.left,
+                mCornerRadius * 2 + rect.top), 180, 90);
         path.close();
     }
 
     public void leftPath(RectF rect, Path path) {
-        path.moveTo(mAngle + mArrowWidth, rect.top);
+        path.moveTo(mCornerRadius + mArrowWidth, rect.top);
         path.lineTo(rect.width(), rect.top);
-        path.arcTo(new RectF(rect.right - mAngle * 2, rect.top, rect.right,
-                mAngle * 2 + rect.top), 270, 90);
+        path.arcTo(new RectF(rect.right - mCornerRadius * 2, rect.top, rect.right,
+                mCornerRadius * 2 + rect.top), 270, 90);
         path.lineTo(rect.right, rect.top);
-        path.arcTo(new RectF(rect.right - mAngle * 2, rect.bottom - mAngle * 2,
+        path.arcTo(new RectF(rect.right - mCornerRadius * 2, rect.bottom - mCornerRadius * 2,
                 rect.right, rect.bottom), 0, 90);
         path.lineTo(rect.left + mArrowWidth, rect.bottom);
-        path.arcTo(new RectF(rect.left + mArrowWidth, rect.bottom - mAngle * 2,
-                mAngle * 2 + rect.left + mArrowWidth, rect.bottom), 90, 90);
+        path.arcTo(new RectF(rect.left + mArrowWidth, rect.bottom - mCornerRadius * 2,
+                mCornerRadius * 2 + rect.left + mArrowWidth, rect.bottom), 90, 90);
         path.lineTo(rect.left + mArrowWidth, mArrowTop + mArrowHeight);
-        path.lineTo(rect.left, mArrowTop - mArrowOffset);
+        path.lineTo(rect.left, mArrowTop - mArrowAnger);
         path.lineTo(rect.left + mArrowWidth, mArrowTop);
         path.lineTo(rect.left + mArrowWidth, rect.top);
-        path.arcTo(new RectF(rect.left + mArrowWidth, rect.top, mAngle * 2
-                + rect.left + mArrowWidth, mAngle * 2 + rect.top), 180, 90);
+        path.arcTo(new RectF(rect.left + mArrowWidth, rect.top, mCornerRadius * 2
+                + rect.left + mArrowWidth, mCornerRadius * 2 + rect.top), 180, 90);
 
         path.close();
     }

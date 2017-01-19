@@ -190,3 +190,25 @@ ssh-keygen -t rsa -C "userEmail@xx.com"
 
 6. 将ssh key 添加到账号key下，终端环境下使用时选择yes
 ```
+
+#### ignore
+```
+.gradle
+.idea
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+*.iml
+*.apk
+```
+
+注意：有时候修改ignore无效，这是因为.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的，因此,需要执行以下命令
+
+```
+git rm -r --cached .  
+git add .
+```
+

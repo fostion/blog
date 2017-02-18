@@ -5,13 +5,12 @@
 
     <cc.fs.sample.drawable.DrawableView
         android:layout_width="200dp"
-        android:layout_height="200dp"/>
-
-
-    <cc.fs.sample.drawable.FlashImageView
-        android:layout_width="200dp"
         android:layout_height="200dp"
-        android:background="@drawable/leak_canary_icon"/>
+        android:visibility="gone"/>
+
+    <cc.fs.sample.drawable.WaveView
+        android:layout_width="800dp"
+        android:layout_height="800dp" />
 
 
 </LinearLayout>

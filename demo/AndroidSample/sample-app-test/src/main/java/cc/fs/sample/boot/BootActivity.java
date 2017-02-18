@@ -20,7 +20,7 @@ public class BootActivity extends AppCompatActivity {
     HomeWatcher homeWatcher;
     WakeWatcher wakeWatcher;
     private final String Tag = "BootActivity";
-    private Button btn;
+    private Button btn,btn1;
 
     private void L(String msg) {
         Log.e(Tag, msg);
@@ -92,6 +92,16 @@ public class BootActivity extends AppCompatActivity {
                 intent.setAction("android.intent.action.VIEW");
                 Uri content_url = Uri.parse("http://www.qq.com");
                 intent.setData(content_url);
+                startActivity(intent);
+            }
+        });
+
+        btn1 = (Button) findViewById(R.id.btn2);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction("com.linkin.tv.OPEN");
                 startActivity(intent);
             }
         });

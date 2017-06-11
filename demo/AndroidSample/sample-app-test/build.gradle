@@ -49,6 +49,7 @@ android {
             assets.srcDirs = ['src/main/assets']
         }
     }
+    buildToolsVersion '25.0.0'
 }
 
 dependencies {

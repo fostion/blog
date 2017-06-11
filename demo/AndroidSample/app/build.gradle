@@ -75,6 +75,7 @@ android {
             println(" - 生成channel2安装包 - ")
         }
     }
+    buildToolsVersion '25.0.0'
 }
 
 dependencies {
